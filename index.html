@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can Bakkal Dijital Katalog</title>
+    <!-- Hızlı ve modern tasarım için Tailwind CSS yüklüyoruz -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+    </style>
+</head>
+<body class="pb-10">
+
+    <!-- Üst Başlık (Header) -->
+    <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center py-6 px-4 shadow-md sticky top-0 z-50">
+        <h1 class="text-2xl font-bold tracking-wide">CAN BAKKAL</h1>
+        <p class="text-xs opacity-90 mt-1">Güncel Fiyat Listesi & Dijital Katalog</p>
+    </div>
+
+    <!-- Arama Çubuğu -->
+    <div class="p-4 max-w-md mx-auto">
+        <div class="relative">
+            <input type="text" id="searchBar" onkeyup="filterProducts()" placeholder="Ürün ara..." class="w-full bg-white pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+        </div>
+    </div>
+
+    <!-- Ürün Listesi Grid Yapısı -->
+    <div class="px-4 max-w-md mx-auto grid grid-cols-2 gap-4" id="productGrid">
+        
+        <!-- ÜRÜN 1: Ülker Çikolatalı Gofret -->
+        <div class="product-card bg-white p-3 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between transition transform active:scale-95">
+            <div class="w-full h-32 bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center p-2">
+                <!-- Migros veya internetten aldığın görsel linkini src kısmına yapıştırabilirsin -->
+                <img src="image_c2ce08.jpg" alt="Ülker Çikolatalı Gofret" class="max-h-full max-w-full object-contain">
+            </div>
+            <div class="mt-3">
+                <h3 class="text-sm font-semibold text-slate-800 line-clamp-2 min-h-[40px]">Ülker Çikolatalı Gofret 36 G</h3>
+                <div class="mt-2 flex items-center justify-between">
+                    <span class="text-xs text-slate-400">1 Adet</span>
+                    <span class="text-base font-bold text-blue-600">20,00 TL</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ÜRÜN 2 (Örnek Tasarım - Kendine Göre Düzenle) -->
+        <div class="product-card bg-white p-3 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between transition transform active:scale-95">
+            <div class="w-full h-32 bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center p-2">
+                <img src="https://images.deliveryhero.io/image/fd-tr/Products/11790432.jpg" alt="Coca Cola" class="max-h-full max-w-full object-contain">
+            </div>
+            <div class="mt-3">
+                <h3 class="text-sm font-semibold text-slate-800 line-clamp-2 min-h-[40px]">Coca-Cola Orijinal Tat 1 L</h3>
+                <div class="mt-2 flex items-center justify-between">
+                    <span class="text-xs text-slate-400">1 Adet</span>
+                    <span class="text-base font-bold text-blue-600">45,00 TL</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- YENİ ÜRÜN EKLEMEK İÇİN YUKARIDAKİ KART YAPISINI KOPYALAYIP BURAYA YAPIŞTIRMAN YETERLİ -->
+
+    </div>
+
+    <!-- Alt Bilgi -->
+    <div class="text-center text-xs text-slate-400 mt-8">
+        © 2026 Can Bakkal. Keyifli Alışverişler dileriz.
+    </div>
+
+    <!-- Arama Fonksiyonu (Hızlı çalışması için entegre script) -->
+    <script>
+        function filterProducts() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let cards = document.getElementsByClassName('product-card');
+            
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
